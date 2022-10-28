@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ff-primary: 'Playfair Display', sans-serif;
+  --ff-secondary: 'Poppins', sans-serif;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: var(--ff-secondary);
+  font-weight: 200;
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* layout */
+
+.hero {
+  padding: 0 2rem;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.hero::before {
+  content: "";
+  background-image: url("https://bit.ly/3Ne839J");
+  background-size: cover;
+  position: absolute;
+  background-repeat: repeat;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.15;
+  z-index: -1;
+}
+
+/* typography */
+
+.ff-secondary {
+  font-family: var(--ff-secondary);
+}
+
+.ff-primary {
+  font-family: var(--ff-primary);
+}
+
+h1 {
+  @apply text-7xl sm:text-9xl font-bold tracking-wide ff-primary
+}
+
+h2 {
+  @apply text-2xl sm:text-5xl lg:text-7xl tracking-wide font-light
+}
+
+h3 {
+  @apply lg:text-7xl sm:text-6xl ff-primary text-4xl
+}
+
+p {
+  @apply lg:text-xl sm:text-base text-sm 
+         lg:leading-[40px] sm:leading-10 leading-8 
+         opacity-90
+}
+
+.overlay-text {
+  @apply  absolute top-0 bottom-0 left-0 right-0 
+        hover:bg-zinc-800/40 text-transparent hover:text-zinc-50 
+          flex items-center justify-center 
+          duration-300 hover:cursor-pointer
+}
+
+.logo {
+  @apply text-lg uppercase font-normal tracking-widest
+}
+
+/* link */
+
+.body-link {
+  @apply px-4 sm:px-16 lg:px-36 underline underline-offset-4 hover:font-bold
+}
+
+/* images */
+
+.card-img {
+  @apply w-[220px] sm:w-[300px] lg:w-[320px] border border-zinc-600
+}
+
+/* wrappers */
+
+.card-container {
+  @apply  flex flex-col gap-8 sm:gap-10 lg:gap-20
+          lg:flex-row lg:items-center 
+          mt-10 sm:mt-0
+          px-4 sm:px-16 lg:px-36
+}
+
+.main-container {
+  @apply  flex flex-col gap-28 items-center text-center
+          lg:flex-row lg:text-left xl:gap-72
+          mt-44 lg:mt-64
+}
+
+.hero-container {
+  @apply flex flex-col sm:gap-32 lg:items-start lg:justify-start lg:px-20
+}
+
+.nav-container {
+  @apply flex ml-auto gap-8 lg:gap-16 py-4 px-8 lg:px-12 bg-zinc-50/10
+}
+
+/* flex */
+
+.flex-col-8 {
+  @apply flex flex-col gap-8
+}
+
+/* underline */
+
+.underline-teal {
+  position: relative;
+}
+
+.underline-teal:before {
+  position: absolute;
+  height: .8px;
+  bottom: -2px;
+  width: 100%;
+  transform: scaleX(0);
+  content: "";
+  background: #10b981;
+  transform-origin: bottom right;
+  transition: transform 100ms ease-in-out;
+}
+
+.underline-teal:hover {
+  opacity: 80%;
+}
+
+.underline-teal:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+
+.bg-blur {
+  background: rgba(220, 225, 222, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-zinc-900
+  }
+}
